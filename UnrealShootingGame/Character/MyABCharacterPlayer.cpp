@@ -1,4 +1,10 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+/*
+* Writer : KimJunWoo
+*
+* This source code setup the default and input settings for the player.
+*
+* Last Update : 2023/10/12
+*/
 
 
 #include "Character/MyABCharacterPlayer.h"
@@ -104,9 +110,25 @@ void AMyABCharacterPlayer::BeginPlay()
 	if (PlayerController)
 	{
 		EnableInput(PlayerController);
+		UE_LOG(LogTemp, Log, TEXT("Input Success!"));
+		UABCharacterControlData* NewCharacterControl = CharacterControlManager[CurrentCharacterControlType];
+		check(NewCharacterControl);
+
+		SetCharacterControlData(NewCharacterControl);
+
+		//기존에 적용되어 있던 매핑 컨텍스트를 지우고 새로운 매핑 컨텍스트를 입력함
+		if (UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(PlayerController->GetLocalPlayer()))
+		{
+			Subsystem->ClearAllMappings();
+			UInputMappingContext* NewMappingContext = NewCharacterControl->InputMappingContext;
+			if (NewMappingContext)
+			{
+				Subsystem->AddMappingContext(NewMappingContext, 0);
+			}
+		}
 	}
 	FindMap();
-	SetCharacterControl(CurrentCharacterControlType);
+	//SetCharacterControl(CurrentCharacterControlType);
 }
 
 void AMyABCharacterPlayer::SetDead()
@@ -165,7 +187,7 @@ void AMyABCharacterPlayer::FindMap()
 		for (AActor* Actor : OutActors)
 		{
 			UE_LOG(LogTemp, Log, TEXT("Actor Name : %s"), *Actor->GetName());
-			Cast<AABStageGimmick>(Actor)->Player = this;
+			Cast<AABStageGimmick>(Actor)->Players.Add(this);
 		}
 	}
 }

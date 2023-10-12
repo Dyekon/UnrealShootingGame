@@ -1,4 +1,10 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+/*
+* Writer : KimJunWoo
+*
+* This source code stores various information about the player to set animations.
+*
+* Last Update : 2023/10/12
+*/
 
 
 #include "Animation/ABAnimInstance.h"

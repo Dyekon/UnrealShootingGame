@@ -1,3 +1,10 @@
+/*
+* Writer : KimJunWoo
+*
+* This source code setup the default stat for characters
+*
+* Last Update : 2023/10/12
+*/
 
 #pragma once
 

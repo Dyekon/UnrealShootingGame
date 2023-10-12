@@ -1,5 +1,10 @@
-// Fill out your copyright notice in the Description page of Project Settings.
-
+/*
+* Writer : KimJunWoo
+*
+* This source code setup player widget for hp, energe, stat
+*
+* Last Update : 2023/10/12
+*/
 
 #include "UI/ABHUDWidget.h"
 #include "Interface/ABCharacterHUDInterface.h"

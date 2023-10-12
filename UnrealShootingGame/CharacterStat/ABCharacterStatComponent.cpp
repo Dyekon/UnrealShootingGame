@@ -1,5 +1,10 @@
-// Fill out your copyright notice in the Description page of Project Settings.
-
+/*
+* Writer : KimJunWoo
+*
+* This source code set up the default and modifier stat setting for characters
+*
+* Last Update : 2023/10/12
+*/
 
 #include "CharacterStat/ABCharacterStatComponent.h"
 #include "GameData/ABGameSingleton.h"

@@ -1,4 +1,10 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+/*
+* Writer : KimJunWoo
+*
+* This source code set up the default and AI settings for enemy.
+*
+* Last Update : 2023/10/12
+*/
 
 
 #include "Character/ABCharacterNonPlayer.h"

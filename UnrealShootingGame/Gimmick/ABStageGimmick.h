@@ -40,7 +40,7 @@ public:
 	FORCEINLINE void SetStageNum(int32 NewStageNum) { CurrentStageNum = NewStageNum; }
 
 	UPROPERTY(VisibleAnywhere, Category = Character)
-	TObjectPtr<class AActor> Player;
+	TArray<TObjectPtr<class AActor>> Players;
 
 protected:
 	virtual void BeginPlay() override;
@@ -102,6 +102,7 @@ protected:
 
 	float EnemyPoint;
 	uint8 IsGameCleared;
+	uint8 IsGameStarted;
 
 // Reward Section
 protected:

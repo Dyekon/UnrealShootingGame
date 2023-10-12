@@ -1,4 +1,10 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+/*
+* Writer : KimJunWoo
+* 
+* This Source code is making items and show niagara System particle of item
+* 
+* Last Update : 2023/10/12
+*/
 
 
 #include "Item/ABItemBox.h"

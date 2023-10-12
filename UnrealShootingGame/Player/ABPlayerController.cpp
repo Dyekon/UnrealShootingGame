@@ -1,4 +1,10 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+/*
+* Writer : KimJunWoo
+*
+* This source code setup default values for PlayerController
+*
+* Last Update : 2023/10/12
+*/
 
 
 #include "Player/ABPlayerController.h"
@@ -10,7 +16,8 @@ DEFINE_LOG_CATEGORY(LogABPlayerController);
 
 AABPlayerController::AABPlayerController()
 {
-	bShowMouseCursor = true;
+//	bShowMouseCursor = true;
+	SetShowMouseCursor(true);
 
 	DefaultMouseCursor = EMouseCursor::Default;
 	CurrentMouseCursor = EMouseCursor::Default;

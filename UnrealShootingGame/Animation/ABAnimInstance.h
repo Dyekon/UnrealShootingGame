@@ -40,12 +40,6 @@ protected:
 	FName Tag;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Character)
-	float VelocityX;
-
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Character)
-	float VelocityY;
-
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Character)
 	float GroundSpeed;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Character)
@@ -65,4 +59,10 @@ protected:
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Character)
 	float JumpingThreshould;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Character)
+	float VelocityX;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Character)
+	float VelocityY;
 };

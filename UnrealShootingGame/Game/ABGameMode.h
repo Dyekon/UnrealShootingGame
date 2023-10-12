@@ -23,8 +23,6 @@ public:
 	virtual void OnPlayerDead() override;
 	virtual bool IsGameCleared() override;
 
-	
-
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = Game)
 	int32 ClearScore;
 
@@ -36,5 +34,5 @@ public:
 
 	UPROPERTY(VisibleInstanceOnly, BlueprintReadOnly, Category = Game)
 	uint8 bIsCleared : 1;
-
+	
 };

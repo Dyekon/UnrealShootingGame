@@ -1,5 +1,10 @@
-// Fill out your copyright notice in the Description page of Project Settings.
-
+/*
+* Writer : KimJunWoo
+*
+* This source code notify when fire bullet
+*
+* Last Update : 2023/10/12
+*/
 
 #include "Animation/AnimNotify_AttackHitCheck.h"
 #include "Interface/ABAnimationAttackInterface.h"

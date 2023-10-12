@@ -1,5 +1,10 @@
-// Fill out your copyright notice in the Description page of Project Settings.
-
+/*
+* Writer : KimJunWoo
+*
+* This source code setup default values for player special bullet
+*
+* Last Update : 2023/10/12
+*/
 
 #include "Prop/ABSpecialBullet.h"
 #include "Components/StaticMeshComponent.h"
@@ -100,14 +105,16 @@ void AABSpecialBullet::CheckEnemy()
 	const FVector Start = GetActorLocation();
 	const FVector End = Start;
 
-	bool HitDetected = GetWorld()->SweepMultiByChannel(OutHitResult, Start, End, FQuat::Identity, ECC_GameTraceChannel1, FCollisionShape::MakeSphere(AttackRadius), Params);
+	bool HitDetected = GetWorld()->SweepMultiByChannel(OutHitResult, Start, End, FQuat::Identity, ECC_GameTraceChannel1, 
+														FCollisionShape::MakeSphere(AttackRadius), Params);
 	if (HitDetected)
 	{
 		for (FHitResult Enemy : OutHitResult)
 		{
 			if (Enemy.GetActor()->Tags.Num() != 0 && Tags.Num() != 0)
 			{
-				if (!Enemy.GetActor()->ActorHasTag(Tags[0]) && Enemy.GetActor()->Tags.Num() == 1 && Enemy.GetActor()->ActorHasTag(FName("Enemy")))
+				if (!Enemy.GetActor()->ActorHasTag(Tags[0]) && Enemy.GetActor()->Tags.Num() == 1 && 
+					Enemy.GetActor()->ActorHasTag(FName("Enemy")))
 				{
 					FDamageEvent DamageEvent;
 					Enemy.GetActor()->TakeDamage(Damage / 2, DamageEvent, Controller, Controller->GetPawn());
