@@ -3,7 +3,7 @@
 *
 * This source code stores various information about the player to set animations.
 *
-* Last Update : 2023/10/12
+* Last Update : 2024/03/06
 */
 
 
@@ -59,7 +59,7 @@ void UABAnimInstance::NativeUpdateAnimation(float DeltaSeconds)
 void UABAnimInstance::CharacterMoveVelocity()
 {
 	//Setting Modifier Move Velocity
-	//ÇÃ·¹ÀÌ¾î°¡ ¿òÁ÷ÀÌ´Â ¹æÇâ¿¡ µû¶ó °è»êÇÏ´Â °¢µµ ¼³Á¤
+	//í”Œë ˆì´ì–´ê°€ ì›€ì§ì´ëŠ” ë°©í–¥ì— ë”°ë¼ ê³„ì‚°í•˜ëŠ” ê°ë„ ì„¤ì •
 	float CharacterAngle = CharacterPlayer->CharacterAngle;
 	float MoveDirX = CharacterPlayer->MoveDirection.X;
 	float MoveDirY = CharacterPlayer->MoveDirection.Y;
