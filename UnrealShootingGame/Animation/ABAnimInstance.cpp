@@ -58,10 +58,12 @@ void UABAnimInstance::NativeUpdateAnimation(float DeltaSeconds)
 
 void UABAnimInstance::CharacterMoveVelocity()
 {
-//Setting Modifier Move Velocity
+	//Setting Modifier Move Velocity
+	//플레이어가 움직이는 방향에 따라 계산하는 각도 설정
 	float CharacterAngle = CharacterPlayer->CharacterAngle;
 	float MoveDirX = CharacterPlayer->MoveDirection.X;
 	float MoveDirY = CharacterPlayer->MoveDirection.Y;
+
 	if (CharacterAngle >= 0 && CharacterAngle <= 180)
 	{
 		VelocityX = Velocity.X > 0 ? 450 - (CharacterAngle * 5) : -450 + (CharacterAngle * 5);
@@ -105,18 +107,14 @@ void UABAnimInstance::CharacterMoveVelocity()
 				VelocityY = -450 + (CharacterAngle * 10);
 			}
 		}
-	}
-	else if (CharacterAngle >= 90 && CharacterAngle < 270)
-	{
+	}else if (CharacterAngle >= 90 && CharacterAngle < 270){
 		if (MoveDirX == 0)
 		{
 			VelocityX = Velocity.Y > 0 ? 450 - ((CharacterAngle - 90) * 5) : -450 + ((CharacterAngle - 90) * 5);
-			//VelocityX = Velocity.Y > 0 ? Velocity.Y - ((CharacterAngle - 90) * 5) : Velocity.Y + ((CharacterAngle - 90) * 5);
 		}
 		if (MoveDirY == 0)
 		{
 			VelocityY = Velocity.X > 0 ? -450 + ((CharacterAngle - 90) * 5) : 450 - ((CharacterAngle - 90) * 5);
-			//VelocityY = Velocity.X > 0 ? -Velocity.X + ((CharacterAngle - 90) * 5) : -Velocity.X - ((CharacterAngle - 90) * 5);
 		}
 		if (MoveDirX != 0 && MoveDirY != 0)
 		{
@@ -142,9 +140,7 @@ void UABAnimInstance::CharacterMoveVelocity()
 					VelocityX = -450 + ((CharacterAngle - 90) * 10);
 					VelocityY = 450;
 				}
-			}
-			else
-			{
+			}else{
 				if (MoveDirX > 0 && MoveDirY > 0)
 				{
 					VelocityX = -450;
@@ -167,9 +163,7 @@ void UABAnimInstance::CharacterMoveVelocity()
 				}
 			}
 		}
-	}
-	else
-	{
+	}else{
 		if (MoveDirX == 0)
 		{
 			VelocityX = Velocity.Y > 0 ? -450 + ((CharacterAngle - 270) * 5) : 450 - ((CharacterAngle - 270) * 5);

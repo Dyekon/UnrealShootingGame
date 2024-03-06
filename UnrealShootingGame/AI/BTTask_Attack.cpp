@@ -3,7 +3,7 @@
 *
 * This Source code is enemy attack player behavoirtree
 *
-* Last Update : 2023/10/12
+* Last Update : 2024/03/06
 */
 
 
@@ -18,7 +18,7 @@ UBTTask_Attack::UBTTask_Attack()
 EBTNodeResult::Type UBTTask_Attack::ExecuteTask(UBehaviorTreeComponent& OwnerComp, uint8* NodeMemory)
 {
 	EBTNodeResult::Type Result = Super::ExecuteTask(OwnerComp, NodeMemory);
-
+	//공격에 필요한 정보들을 성공적으로 받아왔는지 확인
 	APawn* ControllingPawn = Cast<APawn>(OwnerComp.GetAIOwner()->GetPawn());
 	if (nullptr == ControllingPawn)
 	{

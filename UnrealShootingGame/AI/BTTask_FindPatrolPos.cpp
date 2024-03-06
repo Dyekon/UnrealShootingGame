@@ -3,7 +3,7 @@
 *
 * This Source code is if don't find player, enemy patrol behaviortree
 *
-* Last Update : 2023/10/12
+* Last Update : 2024/03/06
 */
 
 
@@ -22,6 +22,7 @@ EBTNodeResult::Type UBTTask_FindPatrolPos::ExecuteTask(UBehaviorTreeComponent& O
 {
 	EBTNodeResult::Type Result = Super::ExecuteTask(OwnerComp, NodeMemory);
 
+	//회전에 필요한 정보들을 성공적으로 받아왔는지 확인
 	APawn* ControllingPawn = OwnerComp.GetAIOwner()->GetPawn();
 	if (nullptr == ControllingPawn)
 	{
@@ -40,6 +41,7 @@ EBTNodeResult::Type UBTTask_FindPatrolPos::ExecuteTask(UBehaviorTreeComponent& O
 		return EBTNodeResult::Failed;
 	}
 
+	//플레이어를 찾을 때까지 랜덤한 방향으로 일정 거리 걸어가며 근처의 적을 탐색
 	FVector Origin = OwnerComp.GetBlackboardComponent()->GetValueAsVector(BBKEY_HOMEPOS);
 	float PatrolRadius = AIPawn->GetAIPatrolRadius();
 	FNavLocation NextPatrolPos;

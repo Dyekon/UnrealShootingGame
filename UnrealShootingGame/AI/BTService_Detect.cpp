@@ -24,7 +24,7 @@ UBTService_Detect::UBTService_Detect()
 void UBTService_Detect::TickNode(UBehaviorTreeComponent& OwnerComp, uint8* NodeMemory, float DeltaSeconds)
 {
 	Super::TickNode(OwnerComp, NodeMemory, DeltaSeconds);
-
+	//탐색에 필요한 정보들을 성공적으로 받아왔는지 확인
 	APawn* ControllingPawn = OwnerComp.GetAIOwner()->GetPawn();
 	if (nullptr == ControllingPawn)
 	{
@@ -44,6 +44,7 @@ void UBTService_Detect::TickNode(UBehaviorTreeComponent& OwnerComp, uint8* NodeM
 		return;
 	}
 
+	//일정 원 범위 내에 플레이어가 있을 시 목표로 설정
 	float DetectRadius = AIPawn->GetAIDetectRange();
 
 	TArray<FOverlapResult> OverlapResults;
@@ -56,7 +57,7 @@ void UBTService_Detect::TickNode(UBehaviorTreeComponent& OwnerComp, uint8* NodeM
 		FCollisionShape::MakeSphere(DetectRadius),
 		CollisionQueryParam
 	);
-
+	//만약 범위 내에 있다면
 	if (bResult)
 	{
 		for (auto const& OverlapResult : OverlapResults)

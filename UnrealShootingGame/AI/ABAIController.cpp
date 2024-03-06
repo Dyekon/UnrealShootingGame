@@ -15,6 +15,7 @@
 
 AABAIController::AABAIController()
 {
+	//Blackboard ¹× BehaviorTree ¼³Á¤
 	static ConstructorHelpers::FObjectFinder<UBlackboardData> BBAssetRef(TEXT("/Script/AIModule.BlackboardData'/Game/ArenaBattle/AI/BB_ABCharacter.BB_ABCharacter'"));
 	if (nullptr != BBAssetRef.Object)
 	{
