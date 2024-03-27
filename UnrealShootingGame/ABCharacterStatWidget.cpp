@@ -1,5 +1,10 @@
-// Fill out your copyright notice in the Description page of Project Settings.
-
+/*
+* Writer : KimJunWoo
+*
+* This source code setup the reading .csv file settings for the stat.
+*
+* Last Update : 2023/10/12
+*/
 
 #include "ABCharacterStatWidget.h"
 #include "Components/TextBlock.h"
@@ -18,14 +23,12 @@ void UABCharacterStatWidget::NativeConstruct()
 		if (BaseTextBlock)
 		{
 			BaseLookup.Add(PropKey, BaseTextBlock);
-			//UE_LOG(LogTemp, Log, TEXT("AddBaseTextBlock"));
 		}
 
 		UTextBlock* ModifierTextBlock = Cast<UTextBlock>(GetWidgetFromName(TextModifierControlName));
 		if (ModifierTextBlock)
 		{
 			ModifierLookup.Add(PropKey, ModifierTextBlock);
-			//UE_LOG(LogTemp, Log, TEXT("AddModifierTextBlock"));
 		}
 	}
 }
@@ -40,8 +43,6 @@ void UABCharacterStatWidget::UpdateStat(const FABCharacterStat& BaseStat, const 
 		PropIt->GetValue_InContainer((const void*)&BaseStat, &BaseData);
 		float ModifierData = 0.0f;
 		PropIt->GetValue_InContainer((const void*)&ModifierStat, &ModifierData);
-		//UE_LOG(LogTemp, Log, TEXT("PropKey : %s"), *PropIt->GetName());
-		//UE_LOG(LogTemp, Log, TEXT("PropKey : %d"), BaseLookup.Num());
 		UTextBlock** BaseTextBlockPtr = BaseLookup.Find(PropKey);
 		if (BaseTextBlockPtr)
 		{
